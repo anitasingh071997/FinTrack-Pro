@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'helvetica neue';
+    color: white;
+    font-size: 30px;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+main{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+.left-top{
+    background-color: royalblue;
+}
+.left-bottom{
+    background-color: royalblue;
+}
+.right-top{
+    background-color: royalblue;
+}
+.right-bottom{
+    background-color: royalblue;
+}
+.center{
+    background-color: royalblue;
+}
+.top-center1{
+    background-color: royalblue;
+}
+.top-center2{
+    background-color: royalblue;
+}
+.bottom-center1{
+    background-color: royalblue;
+}
+.bottom-center2{
+    background-color: royalblue;
+}

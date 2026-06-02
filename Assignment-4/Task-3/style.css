@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'helvetica neue';
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 5% 35% 20% 23% 17%;
+    grid-template-rows: 25% 50% 25%;
+    grid-template-areas:
+        "aside about pro pro pro"
+        "aside about vid vid right-center"
+        "aside about client bottom bottom"
+    ;
+    padding: 25px;
+}
+
+aside {
+    height: 100%;
+    width: 100%;
+    grid-area: aside;
+    align-content: end;
+}
+
+.about {
+    height: 100%;
+    width: 100%;
+    background-color: #8184D2;
+    grid-area: about;
+    position: relative;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.pro {
+    grid-area: pro;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start
+}
+
+.vid {
+    grid-area: vid;
+    padding: 20px;
+    position: relative;
+
+}
+
+.client {
+    grid-area: client;
+    padding: 13px;
+
+}
+
+.bottom {
+    grid-area: bottom;
+    padding: 13px 30px;
+    display: flex;
+
+}
+
+.right-center {
+    grid-area: right-center;
+    padding: 20px 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.asidebar {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.asidebar h4 {
+    rotate: 270deg;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.about {
+    height: 100%;
+    width: 100%;
+}
+
+.about img {
+    position: absolute;
+    top: 15%;
+    left: 25%;
+    height: 62%;
+}
+
+.but {
+    display: flex;
+    align-items: center;
+}
+
+.but button {
+    border-radius: 50px;
+    font-size: 20px;
+    padding: 7px 15px;
+
+}
+
+.name {
+    height: 85%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    line-height: 60px;
+
+}
+
+.name h1 {
+    color: white;
+    font-size: 60px;
+    font-weight: 400;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.name h2 {
+    color: white;
+    margin-left: 15px;
+    font-size: 60px;
+    font-weight: 700;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.name p {
+    width: fit-content;
+    color: white;
+    margin-left: 25px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-bottom: 5px dotted white;
+    line-height: 35px;
+    margin-top: 12px;
+}
+
+.pro h1 {
+    font-size: 135px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.vid img {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    border-radius: 15px;
+}
+
+.vid i {
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #FBEAEB;
+    padding: 20px;
+    border-radius: 50%;
+    background-color: #FBEAEB;
+}
+
+.client .logo {
+    height: 100%;
+    width: 100%;
+    background-color: #585858;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.client .logo i {
+    font-size: 45px;
+    color: white;
+    padding-bottom: 5px;
+}
+
+.client .logo h2 {
+    font-size: 25px;
+    font-weight: 400;
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.bottom .part {
+    height: 100%;
+    width: 50%;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 15px;
+}
+
+.bottom .part2 {
+    height: 100%;
+    width: 50%;
+    margin-left: -60px;
+    background-color: #FEC266;
+    padding: 60px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.bottom .part img {
+    height: 100%;
+    padding-left: 20px;
+}
+.bottom .part2 h2{
+    font-size: 40px;
+    font-weight: 700;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.bottom .part2 h4{
+    font-size: 20px;
+    font-weight: 400;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.right-center .part {
+    height: 60%;
+    width: 55%;
+    background-color: #A9D9D7;
+    border-radius: 15px;
+    padding: 40px 25px;
+    line-height: 35px;
+}
+.right-center .part h2{
+    font-size: 40px;
+    font-weight: 700;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.right-center .part h4{
+    font-size: 25px;
+    font-weight: 400;
+    padding-left: 2px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.right-center .part2 {
+    height: 60%;
+    width: 55%;
+    background-color: #8E6FBE;
+    border-radius: 15px;
+    padding: 40px 25px;
+    line-height: 35px;
+
+
+}
+.right-center .part2 h2{
+    font-size: 40px;
+    font-weight: 700;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.right-center .part2 h4{
+    font-size: 25px;
+    font-weight: 400;
+    padding-left: 5px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
