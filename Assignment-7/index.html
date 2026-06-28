@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Pipeline || commit a new task...</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="shortcut icon"
+    href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTabPlUzckcYoJ08MCVznSS3eyt5Df3ei2aaw&s"
+    type="image/x-icon">
+</head>
+
+<body data-theme="dark">
+
+  <!-- ===== HEADER ===== -->
+  <header class="topbar">
+    <h1><i class="ri-code-s-slash-line"></i> task::pipeline</h1>
+
+    <!-- Theme Toggle -->
+    <button id="themeToggle" class="theme-btn" data-theme="dark">
+      <i class="ri-moon-line"></i> Dark
+    </button>
+  </header>
+
+  <main class="layout">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+      <h3>Stages</h3>
+      <ul class="stage-list">
+        <li>Queued <span id="countQueued">0</span></li>
+        <li>Completed <span id="countCompleted">0</span></li>
+      </ul>
+
+      <h3>Filter by Category</h3>
+      <select id="categoryFilter">
+        <option value="all">All</option>
+        <option value="frontend">Frontend</option>
+        <option value="backend">Backend</option>
+        <option value="infra">Infra</option>
+      </select>
+
+      <h3>Search</h3>
+      <input type="text" id="searchInput" placeholder="Search task...">
+
+      <button id="clearAllBtn" class="danger-btn">Clear All</button>
+    </aside>
+
+    <!-- ===== MAIN AREA ===== -->
+    <section class="main-area">
+
+      <!-- Task Creation Form -->
+      <form id="taskForm" class="task-form">
+        <input type="text" id="taskTitle" placeholder="commit a new task..." required>
+
+        <select id="taskCategory">
+          <option value="">Category</option>
+          <option value="frontend">Frontend</option>
+          <option value="backend">Backend</option>
+          <option value="infra">Infra</option>
+        </select>
+
+        <button type="submit" class="add-btn"><i class="ri-add-line"></i> push</button>
+      </form>
+
+      <!-- Task Cards render here via JS -->
+      <div id="taskContainer" class="task-grid">
+        <!-- static card structure (JS will create more like this) -->
+        <!-- <div class="task-card" data-id="1" data-status="queued" data-category="frontend">
+          <div class="card-top">
+            <span class="task-name">refactor nav component</span>
+            <span class="task-id">#0001</span>
+          </div>
+          <div class="tags">
+            <span class="tag tag-frontend">frontend</span>
+            <span class="tag tag-queued">queued</span>
+          </div>
+          <div class="actions">
+            <button class="edit-btn">Edit</button>
+            <button class="complete-btn">Complete</button>
+            <button class="delete-btn">Delete</button>
+          </div>
+        </div> -->
+      </div>
+
+    </section>
+  </main>
+
+  <!-- ===== EVENT PROPAGATION DEMO ===== -->
+  <section class="propagation-demo">
+    <h2>Event Propagation Demo</h2>
+    <div id="grandparent" class="box gp">
+      Grandparent
+      <div id="parent" class="box p">
+        Parent
+        <button id="child" class="box c">Child Button</button>
+      </div>
+    </div>
+    <p class="hint">Open console to see Bubbling vs Capturing order.</p>
+  </section>
+
+  <!-- ===== RENDERING PIPELINE SECTION ===== -->
+  <section class="pipeline-section">
+    <h2>Render Pipeline · How This Page Gets Built</h2>
+    <div class="pipeline-strip">
+      <div class="pipe-box">
+        <p class="pipe-label">HTML</p>
+        <p class="pipe-sub">Parse → Tokenize</p>
+      </div>
+      <span class="arrow">→</span>
+      <div class="pipe-box">
+        <p class="pipe-label">DOM Tree</p>
+        <p class="pipe-sub">Node graph built</p>
+      </div>
+      <span class="arrow">→</span>
+      <div class="pipe-box">
+        <p class="pipe-label">CSSOM</p>
+        <p class="pipe-sub">Styles resolved</p>
+      </div>
+      <span class="arrow">→</span>
+      <div class="pipe-box">
+        <p class="pipe-label">Render Tree</p>
+        <p class="pipe-sub">Pixels painted</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
