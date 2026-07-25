@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinTrack Pro || Personal Finance Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="shortcut icon"
+    href="https://thumbs.dreamstime.com/b/glossy-rupee-symbol-icon-indian-currency-representation-transparent-background-d-render-inside-blue-rounded-square-406363529.jpg"
+    type="image/x-icon">
+</head>
+
+<body>
+  <!-- ================= LOGIN / REGISTER ================= -->
+
+  <div class="auth-page" id="authPage">
+
+    <div class="auth-container">
+
+      <div class="auth-header">
+        <div class="auth-logo">₹</div>
+        <h2>FinTrack Pro</h2>
+        <p>Manage your money smarter.</p>
+      </div>
+
+      <!-- LOGIN -->
+
+      <div id="loginForm">
+
+        <h3 style="color: rgb(15, 23, 41);">Welcome Back 👋</h3>
+
+        <div class="auth-group">
+          <label>Email</label>
+          <input type="email" id="loginEmail" placeholder="Enter your email">
+        </div>
+
+        <div class="auth-group">
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="Enter your password">
+        </div>
+
+        <button class="auth-btn" onclick="loginUser()">
+          Login
+        </button>
+
+        <p class="auth-switch">
+          Don't have an account?
+
+          <span onclick="showRegister()">
+            Register
+          </span>
+        </p>
+
+      </div>
+
+      <!-- REGISTER -->
+
+      <div id="registerForm" style="display:none;">
+
+        <h3 style="color: rgb(15, 23, 41);">Create Account</h3>
+
+        <div class="auth-group">
+          <label>Full Name</label>
+          <input type="text" id="registerName" placeholder="Enter your name">
+        </div>
+
+        <div class="auth-group">
+          <label>Email</label>
+          <input type="email" id="registerEmail" placeholder="Enter your email">
+        </div>
+
+        <div class="auth-group">
+          <label>Password</label>
+          <input type="password" id="registerPassword" placeholder="Create password">
+        </div>
+
+        <div class="auth-group">
+          <label>Confirm Password</label>
+          <input type="password" id="confirmPassword" placeholder="Confirm password">
+        </div>
+
+        <button class="auth-btn" onclick="registerUser()">
+          Register
+        </button>
+
+        <p class="auth-switch">
+          Already have an account?
+
+          <span onclick="showLogin()">
+            Login
+          </span>
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ================= END AUTH ================= -->
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">₹</div>
+      <span>FinTrack</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active" onclick="showPage('dashboard', this)">
+        <span class="nav-icon"><i class="ri-dashboard-line"></i></span>
+        <span>Dashboard</span>
+      </a>
+      <a href="#" class="nav-item" onclick="showPage('settings', this)">
+        <span class="nav-icon"><i class="ri-settings-5-line"></i></span>
+        <span>Settings</span>
+      </a>
+    </nav>
+
+    <button class="add-btn" onclick="openModal()">
+      <span><i class="ri-add-line"></i></span> Add Transaction
+    </button>
+  </aside>
+
+  <!-- Overlay for mobile -->
+  <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+        <div>
+          <h1 id="pageHeading">Dashboard</h1>
+          <p id="pageSubtitle">Welcome back! Here's your finance overview.</p>
+        </div>
+      </div>
+      <!-- <div class="topbar-right">
+        <span id="userName-display">Hello, User <i class="ri-message-ai-3-line"></i></span>
+      </div> -->
+
+      <div class="topbar-right">
+
+        <span id="userName-display">
+          Hello, User 👋
+        </span>
+
+        <button class="logout-btn" onclick="logoutUser()">
+          <i class="ri-logout-box-r-line"></i>
+          Logout
+        </button>
+
+      </div>
+    </header>
+
+    <!-- Dashboard Page -->
+    <section id="dashboard" class="page">
+
+      <!-- Cards -->
+      <div class="cards">
+        <div class="card card-balance">
+          <div class="card-top">
+            <p>Current Balance</p>
+            <div class="card-badge">💰</div>
+          </div>
+          <h3 id="balance">₹0</h3>
+          <div class="card-foot">Updated just now</div>
+        </div>
+
+        <div class="card card-income">
+          <div class="card-top">
+            <p>Total Income</p>
+            <div class="card-badge">📈</div>
+          </div>
+          <h3 id="totalIncome">₹0</h3>
+          <div class="card-foot">All time</div>
+        </div>
+
+        <div class="card card-expense">
+          <div class="card-top">
+            <p>Total Expense</p>
+            <div class="card-badge">📉</div>
+          </div>
+          <h3 id="totalExpense">₹0</h3>
+          <div class="card-foot">All time</div>
+        </div>
+
+        <div class="card card-count">
+          <div class="card-top">
+            <p>Transactions</p>
+            <div class="card-badge">🧾</div>
+          </div>
+          <h3 id="totalCount">0</h3>
+          <div class="card-foot">Total records</div>
+        </div>
+      </div>
+
+      <!-- Chart + Table row -->
+      <div class="content-grid">
+
+        <!-- Chart -->
+        <div class="box chart-box">
+          <div class="box-header">
+            <h2>Cash Flow</h2>
+            <span class="badge-tag">Overview</span>
+          </div>
+          <canvas id="chart"></canvas>
+        </div>
+
+        <!-- Transaction list -->
+        <div class="box">
+          <div class="box-header">
+            <h2>Transactions</h2>
+            <div class="filters">
+              <button class="active" onclick="filterTransactions('all', this)">All</button>
+              <button onclick="filterTransactions('income', this)">Income</button>
+              <button onclick="filterTransactions('expense', this)">Expense</button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Category</th>
+                  <th>Amount</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="transactionList"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Settings Page -->
+    <section id="settings" class="page" style="display:none;">
+      <div class="settings-wrap">
+        <div class="box settings-box">
+          <div class="box-header">
+            <h2>Profile</h2>
+          </div>
+
+          <label>Your Name</label>
+          <input type="text" id="userName" placeholder="Enter your name">
+
+          <label>Currency</label>
+          <select id="currency">
+            <option value="₹">INR (₹)</option>
+            <option value="$">USD ($)</option>
+            <option value="€">EUR (€)</option>
+            <option value="£">GBP (£)</option>
+            <option value="¥">JPY (¥)</option>
+          </select>
+
+          <button class="save-btn" onclick="saveSettings()">Save Settings</button>
+        </div>
+
+        <div class="box settings-box">
+          <div class="box-header">
+            <h2>Appearance</h2>
+          </div>
+
+          <div class="toggle-row">
+            <div>
+              <p class="toggle-label">Dark Mode</p>
+              <p class="toggle-sub">Switch to dark theme</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="darkMode" onclick="toggleDarkMode()">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <hr class="divider">
+          <p class="danger-title">Danger Zone</p>
+          <p class="danger-sub">This will permanently delete all your data.</p>
+          <button class="danger-btn" onclick="resetAllData()">🗑 Reset All Data</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>New Transaction</h3>
+        <span class="close" onclick="closeModal()">✕</span>
+      </div>
+
+      <div class="type-toggle">
+        <button id="btn-income" class="type-btn active-income" onclick="setType('income')">↑ Income</button>
+        <button id="btn-expense" class="type-btn" onclick="setType('expense')">↓ Expense</button>
+      </div>
+      <input type="hidden" id="type" value="income">
+
+      <label>Description</label>
+      <input type="text" id="desc" placeholder="e.g. Grocery Shopping">
+
+      <label>Amount</label>
+      <input type="number" id="amount" placeholder="0.00">
+
+      <label>Date</label>
+      <input type="date" id="date">
+
+      <label>Category</label>
+      <select id="category">
+        <option>Food & Dining</option>
+        <option>Shopping</option>
+        <option>Recharge & Bills</option>
+        <option>Petrol & Auto</option>
+        <option>Utilities</option>
+        <option>Salary</option>
+        <option>Entertainment</option>
+        <option>Other</option>
+      </select>
+
+      <button class="modal-save" onclick="addTransaction()">Save Transaction</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
