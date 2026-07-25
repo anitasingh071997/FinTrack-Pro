@@ -16,16 +16,16 @@ All user data is securely stored in the browser using Local Storage, eliminating
 
 ## 🚀 Live Demo
 
-🔗 https://your-site-name.netlify.app
+🔗 https://fintrack-pro-anita.netlify.app/
 
 ---
 
-## 📸 Screenshot
+## 📸 Screenshots 
 
-![Dashboard](screenshots/dashboard.png)
-![Dashboard](screenshots/login.png)
-![Dashboard](screenshots/register.png)
-![Dashboard](screenshots/settings.png)
+![Dashboard](Screenshots/dashboard.png)
+![Dashboard](Screenshots/login.png)
+![Dashboard](Screenshots/register.png)
+![Dashboard](Screenshots/settings.png)
 
 ---
 
